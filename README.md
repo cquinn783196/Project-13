@@ -41,11 +41,6 @@ _Note: Use the [Markdown Table Generator](http://www.tablesgenerator.com/markdow
 | Web-2    | Web Server   | 10.0.0.6   | Linux            |
 | ELKvm    | Monitoroing  | 10.1.0.4   | Linux            |
 
-### PROJECT 13 MILESTONES
-- Ansible Playbook successfully deployed to configure Filebeat and able to run on both vulneratble Web VMs
-- Ensure that Filebeat was properly installed and running on Web-1 and Web-2 VMs
-- Verify that our ELK server is receiving logs from both of the DVWA VMs
-
 ### Access Policies
 
 The machines on the internal network are not exposed to the public Internet. 
@@ -121,5 +116,10 @@ The example belows a successful installation of filebeat
 Then we navigate back to Kibana and ensure that log data is flowing from the vulnerable VMs on the ELK server GUI where we click Module Status to check data and verify that there is in fact incomming data.
 ![filebeat running and connected in kibana dashboard](https://user-images.githubusercontent.com/77703892/120907357-ad1baf00-c62e-11eb-83e7-db0afffd2f94.PNG)
 
+
+### PROJECT 13 MILESTONES
+- Ansible Playbook successfully deployed to configure Filebeat and able to run on both vulneratble Web VMs
+- Ensure that Filebeat was properly installed and running on Web-1 and Web-2 VMs
+- Verify that our ELK server is receiving logs from both of the DVWA VMs
 
 
