@@ -41,6 +41,10 @@ _Note: Use the [Markdown Table Generator](http://www.tablesgenerator.com/markdow
 | Web-2    | Web Server   | 10.0.0.6   | Linux            |
 | ELKvm    | Monitoroing  | 10.1.0.4   | Linux            |
 
+Additionally, our Azure environment has provisioned a load balancer in front of all machines except our JumpBox Provisioner. The load balancer's targets are organized into the following availability zones:
+- Zone 1: Web-1 + Web-2
+- Zone 2: ELKvm
+
 ### Access Policies
 
 The machines on the internal network are not exposed to the public Internet. 
@@ -107,10 +111,11 @@ So far we've been able to deploy the new ELKvm on our virtual network, create an
 ### Filebeat Installation
 Now that our ELK monitoring server is confirmed up and running, we want to add another tool called Filebeat which will help us collect, parse, and visualize ELK logs in a single command to help us better track organizational goals. 
 
-Below, you can see the Filebeat Playbook which is created on the Ansible VM and is then run to install Filebeat on both of our DVWAs Web-1 and Web-2 VMs
+Below, you can see the Filebeat Playbook which is created on the Ansible VM and is then run to install Filebeat on both of our DVWAs Web-1 and Web-2 VMs at 10.0.0.5 and 10.0.06. 
+
 ![FILEBEAT ROLES ANSIBLE PLAYBOOK](https://user-images.githubusercontent.com/77703892/120907229-d7b93800-c62d-11eb-8082-e9094de10c77.PNG)
 
-The example belows a successful installation of filebeat
+The screenshot displayed below shows that we have successfully installed Filebeat on both of our Vulnerable Web VMs. 
 ![filebeat-playbook in terminal success](https://user-images.githubusercontent.com/77703892/120907230-d7b93800-c62d-11eb-91e9-5f0ab2be98ee.PNG)
 
 Then we navigate back to Kibana and ensure that log data is flowing from the vulnerable VMs on the ELK server GUI where we click Module Status to check data and verify that there is in fact incomming data.
