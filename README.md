@@ -61,6 +61,7 @@ A summary of the access policies in place can be found in the table below.
 | ELKvm    | No                  |  10.0.0.4            |
 
 ### Elk Configuration
+![ELKvm example](https://user-images.githubusercontent.com/77703892/120906884-1ef1f980-c62b-11eb-835f-aa3673ccb711.PNG)
 
 The ELK Virtual Machine exposes an Elastic Stack instance. Docker.io is used to download and manage an ELK Container. 
 
@@ -69,9 +70,31 @@ Ansible was used to automate configuration of the ELK machine. No configuration 
 
 The playbook implements the following tasks:
 - _TODO: In 3-5 bullets, explain the steps of the ELK installation play. E.g., install Docker; download image; etc._
-- ...
+- The ELK installation play consists of a few different elements in order to get our ELK stack up and running. 
+- First, we set the elk group as our host, which is only configured for our new ELKvm and no other machines.
+- Then we create taks which achieve the following
+    - vn.max_map_count incraeses the amount of memory used by the ELK container
+    - Install apt packages:
+        - docker.io: the Docker engine which is used tto run the containers
+        - python3-pip: the package used to install the Python software
+    - Install docker pip packages required by Ansible to control the state of the Docker containers
+    - Download the sebp/elk:761 Docker container. sebp created the container, elk is the container, 761 is the version
+    - Configure the container to start with these mapping ports:
+        - 5601:5601
+        - 9200:9200
+        - 5044:5044
+    - We also want to use Ansible's sysctl module and configure it to run automatically in the event our VM gets restarted
 
-The following screenshot displays the results of running docker ps after successfulyl configuring the ELK instance. 
-- _TODO: Update the image file pather with the name of my screenshot of docker ps output:
+Once our Ansbible playbook has been created to install and configure the ELK container, the play can be run on the new VM which was can verify using the docker ps command.  
 
-The Playbook is duplicated below: 
+The following screenshot displays the results of running docker ps after successfully configuring the ELK instance.
+![In ELKvm switch to root user and check status of elk container confirmed up and running](https://user-images.githubusercontent.com/77703892/120907061-8492b580-c62c-11eb-866b-d43099a085e7.PNG)
+
+Once we've confirmed that the ELK container is up and running, we add the ELK stack's IP address to our network security group to allow TCP traffic over port 5601 from the local machine's public IP address. 
+
+To verify that we were able to access the server, you can navigate to http://52.150.20.43:5601/app/kibana and can see the webpage below:
+![confirmation of ELK running and stable connection to Kibana](https://user-images.githubusercontent.com/77703892/120907043-501ef980-c62c-11eb-938d-7096d5287878.PNG)
+
+The Playbook is duplicated below:
+![Install Elk yml](https://user-images.githubusercontent.com/77703892/120906926-6a0c0c80-c62b-11eb-9eed-cb0bf6f123fc.PNG)
+
