@@ -41,6 +41,11 @@ _Note: Use the [Markdown Table Generator](http://www.tablesgenerator.com/markdow
 | Web-2    | Web Server   | 10.0.0.6   | Linux            |
 | ELKvm    | Monitoroing  | 10.1.0.4   | Linux            |
 
+### PROJECT 13 MILESTONES
+- Ansible Playbook successfully deployed to configure Filebeat and able to run on both vulneratble Web VMs
+- Ensure that Filebeat was properly installed and running on Web-1 and Web-2 VMs
+- Verify that our ELK server is receiving logs from both of the DVWA VMs
+
 ### Access Policies
 
 The machines on the internal network are not exposed to the public Internet. 
@@ -50,6 +55,9 @@ Only the Jumpbox-Provisioner machine can accept connections from the Internet. A
 Machines within the network can only be accessed by our Ansible within the Jumpbox-Provisioner.
 - Our local machine is the only machine capable of using SSH to get into the Jumpbox-Provisioner. 
 - _Jumpbox-Provisioner is the only machine within our netwrok that can access the ELKvm from the Private IP Address of 10.0.0.4
+
+![hosts file](https://user-images.githubusercontent.com/77703892/120907178-73967400-c62d-11eb-9a64-4dc81bd608d6.PNG)
+
 
 A summary of the access policies in place can be found in the table below.
 
@@ -97,4 +105,21 @@ To verify that we were able to access the server, you can navigate to http://52.
 
 The Playbook is duplicated below:
 ![Install Elk yml](https://user-images.githubusercontent.com/77703892/120906926-6a0c0c80-c62b-11eb-9eed-cb0bf6f123fc.PNG)
+
+##Milestones thus far
+So far we've been able to deploy the new ELKvm on our virtual network, create an Ansbile play to install and configure an ELK instance and restrict access to the new server.
+
+### Filebeat Installation
+Now that our ELK monitoring server is confirmed up and running, we want to add another tool called Filebeat which will help us collect, parse, and visualize ELK logs in a single command to help us better track organizational goals. 
+
+Below, you can see the Filebeat Playbook which is created on the Ansible VM and is then run to install Filebeat on both of our DVWAs Web-1 and Web-2 VMs
+![FILEBEAT ROLES ANSIBLE PLAYBOOK](https://user-images.githubusercontent.com/77703892/120907229-d7b93800-c62d-11eb-8082-e9094de10c77.PNG)
+
+The example belows a successful installation of filebeat
+![filebeat-playbook in terminal success](https://user-images.githubusercontent.com/77703892/120907230-d7b93800-c62d-11eb-91e9-5f0ab2be98ee.PNG)
+
+Then we navigate back to Kibana and ensure that log data is flowing from the vulnerable VMs on the ELK server GUI where we click Module Status to check data and verify that there is in fact incomming data.
+![filebeat running and connected in kibana dashboard](https://user-images.githubusercontent.com/77703892/120907357-ad1baf00-c62e-11eb-83e7-db0afffd2f94.PNG)
+
+
 
