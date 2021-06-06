@@ -1,6 +1,6 @@
 # Project-13
-# Casey Quinn Unit 13 Project Submission
-## Automated ELK Stack Deployment
+## Casey Quinn Unit 13 Project Submission
+### Automated ELK Stack Deployment
 
 The files in this repository were used to configure the network depicted below.
 
@@ -10,7 +10,7 @@ These files have been tested and used to generate a live ELK deployment on Azure
 
   - _root@d73dddb2df50:/etc/ansible/roles# cat filebeat-playbook.yml._
 
-This document contains the following details:
+###This document contains the following details:
 - Description of the Topology
 - Access Policies
 - ELK Configuration
@@ -58,7 +58,7 @@ Machines within the network can only be accessed by our Ansible within the Jumpb
 ![hosts file](https://user-images.githubusercontent.com/77703892/120907178-73967400-c62d-11eb-9a64-4dc81bd608d6.PNG)
 
 
-A summary of the access policies in place can be found in the table below.
+_A summary of the access policies in place can be found in the table below._
 
 | Name     | Publicly Accessible | Allowed IP Addresses |
 |----------|---------------------|----------------------|
@@ -75,7 +75,7 @@ The ELK Virtual Machine exposes an Elastic Stack instance. Docker.io is used to 
 Ansible was used to automate configuration of the ELK machine. No configuration was performed manually, which is advantageous because so long as the Ansible Playbooks are setup correctly, this is easily duplicated across any number of machines an ensures all of the commands and rules are installed correctly across machines. 
 -Ansible Playbooks are reusable and allow us to accomplish tasks across the network without manually setting them up._
 
-The playbook implements the following tasks:
+_The playbook implements the following tasks:_ 
 - The ELK installation play consists of a few different elements in order to get our ELK stack up and running. 
 - First, we set the elk group as our host, which is only configured for our new ELKvm and no other machines.
 - Then we create taks which achieve the following
@@ -101,13 +101,13 @@ Once we've confirmed that the ELK container is up and running, we add the ELK st
 To verify that we were able to access the server, you can navigate to http://52.150.20.43:5601/app/kibana and can see the webpage below:
 ![confirmation of ELK running and stable connection to Kibana](https://user-images.githubusercontent.com/77703892/120907043-501ef980-c62c-11eb-938d-7096d5287878.PNG)
 
-The Playbook is duplicated below:
+_The Playbook is duplicated below:_ 
 ![Install Elk yml](https://user-images.githubusercontent.com/77703892/120906926-6a0c0c80-c62b-11eb-9eed-cb0bf6f123fc.PNG)
 
-##Milestones thus far
-So far we've been able to deploy the new ELKvm on our virtual network, create an Ansbile play to install and configure an ELK instance and restrict access to the new server.
+## Project Milestones thus far
+- So far we've been able to deploy the new ELKvm on our virtual network, create an Ansbile play to install and configure an ELK instance and restrict access to the new server.
 
-### Filebeat Installation
+## Filebeat Installation
 Now that our ELK monitoring server is confirmed up and running, we want to add another tool called Filebeat which will help us collect, parse, and visualize ELK logs in a single command to help us better track organizational goals. 
 
 Below, you can see the Filebeat Playbook which is created on the Ansible VM and is then run to install Filebeat on both of our DVWAs Web-1 and Web-2 VMs at 10.0.0.5 and 10.0.06. 
@@ -128,7 +128,7 @@ As depicted in the image below, we're analyzing one of the recent logs from the 
 Kibana allows us to have a visual represnetation of the data and events logged by on our network, giving us the ability to filter for specific instances, the types of data being transferred and where things are coming and going from. This way, we can detect any anomolies and gather the necessary data in the event of a security incident or attack. 
 
 
-### PROJECT 13 MILESTONES
+## PROJECT 13 MILESTONES
 - Ansible Playbook successfully deployed to configure Filebeat and able to run on both vulneratble Web VMs
 - Ensure that Filebeat was properly installed and running on Web-1 and Web-2 VMs
 - Verify that our ELK server is receiving logs from both of the DVWA VMs
