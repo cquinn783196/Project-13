@@ -142,5 +142,6 @@ Kibana allows us to have a visual represnetation of the data and events logged b
 - Ansible Playbook successfully deployed to configure Filebeat and able to run on both vulneratble Web VMs
 - Ensure that Filebeat was properly installed and running on Web-1 and Web-2 VMs
 - Verify that our ELK server is receiving logs from both of the DVWA VMs
+- Use Kibana to examine logs from Web VMs to look for suspicious activity
 
 
