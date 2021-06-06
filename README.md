@@ -39,7 +39,7 @@ _Note: Use the [Markdown Table Generator](http://www.tablesgenerator.com/markdow
 | Jump Box | Gateway      | 10.0.0.4   | Linux            |
 | Web-1    | Web Server   | 10.0.0.5   | Linux            |
 | Web-2    | Web Server   | 10.0.0.6   | Linux            |
-| ELKvm    | Monitoroing  | 10.1.0.4   | Linux            |
+| ELKvm    | Monitoring  | 10.1.0.4   | Linux            |
 
 Additionally, our Azure environment has provisioned a load balancer in front of all machines except our JumpBox Provisioner. The load balancer's targets are organized into the following availability zones:
 - Zone 1: Web-1 + Web-2
