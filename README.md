@@ -24,8 +24,8 @@ This document contains the following details:
 The main purpose of this network is to expose a load-balanced and monitored instance of DVWA, the D*mn Vulnerable Web Application.
 
 Load balancing ensures that the application will be highly available, in addition to restricting inbound access to the network.
-- _Load Balancers: are useful because they work to process incomming traffic to be shared by bout of our vulnerable web servers.
-- _Jump Box: The advantage of having a jump box is because it serves as the buffer between the web and the rest of our network, and access controls are used to ensure that only authorized users are able to connect in the first place. 
+- Load Balancers: are useful because they work to process incomming traffic to be shared by bout of our vulnerable web servers.
+- Jump Box: The advantage of having a jump box is because it serves as the buffer between the web and the rest of our network, and access controls are used to ensure that only authorized users are able to connect in the first place. 
 
 Integrating an ELK server allows users to easily monitor the vulnerable VMs for changes to the file systems of the Virtual Machines on the network and system metrics such as CPU usage, attempted SSH login attempts, sudo escalation failures, and more.
 - _Filebeat: detects changes to the filesystem. Specifically, we use it to collect Apache logs_
@@ -76,7 +76,6 @@ Ansible was used to automate configuration of the ELK machine. No configuration 
 -Ansible Playbooks are reusable and allow us to accomplish tasks across the network without manually setting them up._
 
 The playbook implements the following tasks:
-- _TODO: In 3-5 bullets, explain the steps of the ELK installation play. E.g., install Docker; download image; etc._
 - The ELK installation play consists of a few different elements in order to get our ELK stack up and running. 
 - First, we set the elk group as our host, which is only configured for our new ELKvm and no other machines.
 - Then we create taks which achieve the following
@@ -120,6 +119,13 @@ The screenshot displayed below shows that we have successfully installed Filebea
 
 Then we navigate back to Kibana and ensure that log data is flowing from the vulnerable VMs on the ELK server GUI where we click Module Status to check data and verify that there is in fact incomming data.
 ![filebeat running and connected in kibana dashboard](https://user-images.githubusercontent.com/77703892/120907357-ad1baf00-c62e-11eb-83e7-db0afffd2f94.PNG)
+
+# Kibana Investigation
+
+As depicted in the image below, we're analyzing one of the recent logs from the Web-2 machine in Kibana:
+![Kibana log data from web-2 vm](https://user-images.githubusercontent.com/77703892/120908661-6a5fd400-c63a-11eb-8480-e551480994cc.PNG)
+
+Kibana allows us to have a visual represnetation of the data and events logged by on our network, giving us the ability to filter for specific instances, the types of data being transferred and where things are coming and going from. This way, we can detect any anomolies and gather the necessary data in the event of a security incident or attack. 
 
 
 ### PROJECT 13 MILESTONES
