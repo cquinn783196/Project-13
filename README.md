@@ -37,8 +37,8 @@ _Note: Use the [Markdown Table Generator](http://www.tablesgenerator.com/markdow
 | Name     | Function     | IP Address | Operating System |
 |----------|--------------|------------|------------------|
 | Jump Box | Gateway      | 10.0.0.4   | Linux            |
-| Web-1    | DVWM         | 10.0.0.5   | Linux            |
-| Web-2    | DVWM         | 10.0.0.6   | Linux            |
+| Web-1    | DVWA         | 10.0.0.5   | Linux            |
+| Web-2    | DVWA         | 10.0.0.6   | Linux            |
 | Web-3    | Web Server   | 10.0.0.7   | Linux            |
 | ELKvm    | Monitoring   | 10.1.0.4   | Linux            |
 
@@ -69,6 +69,13 @@ _A summary of the access policies in place can be found in the table below._
 | Web-2    | No                  |  10.0.0.4            |
 | Web-3    | No                  |  10.0.0.4            |
 | ELKvm    | No                  |  10.0.0.4            |
+
+_Here are our Network Security Policies for both the RedTeam and ELK Virtual Networks_
+### RedTeam NSG
+![Red Team Network Security Group](https://user-images.githubusercontent.com/77703892/120909581-6042d300-c644-11eb-9a25-9ada493646c1.PNG)
+### ELK NSG
+![ELKvm Network Security Group](https://user-images.githubusercontent.com/77703892/120909583-633dc380-c644-11eb-9764-ecefcd4d12a9.PNG)
+
 
 ### Elk Configuration
 ![ELKvm example](https://user-images.githubusercontent.com/77703892/120906884-1ef1f980-c62b-11eb-835f-aa3673ccb711.PNG)
