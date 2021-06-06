@@ -43,7 +43,8 @@ _Note: Use the [Markdown Table Generator](http://www.tablesgenerator.com/markdow
 
 Additionally, our Azure environment has provisioned a load balancer in front of all machines except our JumpBox Provisioner. The load balancer's targets are organized into the following availability zones:
 - Zone 1: Web-1 + Web-2
-- Zone 2: ELKvm
+- Zone 2: Web-3 (not utilized in this project)
+- The ELKvm is seperated from the other two zones
 
 ### Access Policies
 
